@@ -28,7 +28,7 @@ public class EvaluationService {
 					convertedLong = -1L;
 				
 				} else if (kilometersPerHour >= 0) {
-					String tempString = String.valueOf(kilometersPerHour);
+					String tempString = String.valueOf(kilometersPerHour * 0.621371);
 					convertedLong = Long.parseLong(tempString); 
 					Math.round(convertedLong);
 				}
@@ -54,16 +54,16 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			
-			String answer = null;
+			String answerString = null;
 			
 			if (kilometersPerHour < 0) {
-				answer = "Invalid Value";
+				answerString = "Invalid Value";
 			} else if (kilometersPerHour >= 0) {
 				Double kilometersPerHourConverted = kilometersPerHour * 0.621371; // 0.621371 the conversion rate for kph -> mph
-				answer = String.valueOf(kilometersPerHour) + " km/h = " + String.valueOf(kilometersPerHourConverted) + " mi/h" ;	
+				answerString = kilometersPerHour + " km/h = " + Math.round(kilometersPerHourConverted) + " mi/h" ;	
 			}
 			
-			return answer;
+			return answerString;
 		
 		}
 	}
@@ -89,10 +89,17 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int kiloBytes) {
-		String answer = null;
+		if (kiloBytes < 0) {
+			return "Invalid Value.";
+		} else {
+			int tempAnswer = Math.round( kiloBytes/1024 );
+			int remainder = (kiloBytes % 1024);
+			String answer = Integer.toString(kiloBytes) + " KB = " + Integer.toString(tempAnswer) + " MB and " + Integer.toString(remainder) + " KB";
+			return answer;
+		}
 		
 		
-		return null;
+		
 	}
 
 	/**

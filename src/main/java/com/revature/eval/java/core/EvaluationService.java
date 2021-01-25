@@ -230,8 +230,48 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		String answer = null;
+		// initial check for invalid parameters
+		if (number<0 || number>9) {
+			return "OTHER";
+		}
+		else {
+		// nested switch statement
+		switch (number) {
+			case 0 :
+				answer = "ZERO";
+				break;
+			case 1 :
+				answer = "ONE";
+				break;
+			case 2 :
+				answer = "TWO";
+				break;
+			case 3 :
+				answer = "THREE";
+				break;
+			case 4 :
+				answer = "FOUR";
+				break;
+			case 5 :
+				answer = "Five";
+				break;
+			case 6 :
+				answer = "SIX";
+				break;
+			case 7 :
+				answer = "SEVEN";
+				break;
+			case 8 :
+				answer = "EIGTH";
+				break;
+			case 9 :
+				answer = "NINE";
+				break;
+			}
+		}
+		return answer;
 	}
 
 	/**
@@ -254,7 +294,11 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
+		if (first < 10 || second < 10) {
+			return -1;
+		}
+		
+		
 		return 0;
 	}
 

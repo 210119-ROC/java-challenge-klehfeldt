@@ -122,8 +122,21 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		if (hourOfDay > 23) {
+			return false;	
+		}
+		if (hourOfDay < 0) {
+			return false;
+		}
+		else if (hourOfDay < 8 && isBarking == true) {
+			return true;
+		}
+		else if (hourOfDay > 22 && isBarking == true) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -138,8 +151,11 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		Double firstN = Math.floor(firstNum * 1000) / 1000d;
+		Double secondN = Math.floor(secondNum * 1000) / 1000d;
+		
+		Boolean areEqual = firstN.equals(secondN);
+		return areEqual;
 	}
 
 	/**
@@ -155,16 +171,25 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
+			
+			if (TeenNumberChecker.isTeen(x) || TeenNumberChecker.isTeen(y) || TeenNumberChecker.isTeen(z)) {
+				return true;
+			}
+			else {
 			return false;
+			}
 		}
 
 		// We can initialize isTeen method first
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
+			if (number <= 19 && number >= 13) {
+			return true;
+			}
+			else {
 			return false;
+			}
 		}
 	}
 
@@ -184,8 +209,15 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if (minutes < 0) {
+			return "Invalid Value";
+		}
+		else {
+			long years = minutes / 525600 ;
+			long days = minutes % 525600 ;
+			return minutes + " min = " + years + " y and " + days + " d";
+		}
+		
 	}
 
 	/**

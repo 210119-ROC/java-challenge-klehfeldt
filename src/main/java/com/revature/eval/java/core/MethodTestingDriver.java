@@ -9,9 +9,9 @@ public class MethodTestingDriver {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		EvaluationService evalServ = new EvaluationService();
-		System.out.println(SpeedConverter.printConversion(2020));
-
+		System.out.println(52%112);
+		
+		
 	}
 
 }

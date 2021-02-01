@@ -294,12 +294,26 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
+		int gcd = 0;
+		
 		if (first < 10 || second < 10) {
-			return -1;
+			gcd = -1;
+		} else {
+			if (first>=second) {
+			for (int i=first; i>0; i--) {
+				if (first%i==0 && second%i==0) {
+					gcd =i;
+					}
+				}
+			} else if (second>first) {
+				for (int i=second; i>0; i--) {
+					if (first%i==0 && second%i==0) {
+						gcd =i;
+					}
+				}
+			}
 		}
-		
-		
-		return 0;
+		return gcd;
 	}
 
 	/**
